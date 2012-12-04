@@ -1,24 +1,24 @@
 !!! 5
-//if lt IE 7 ]><html class="ie ie6" lang="en">
-//if IE 7 ]><html class="ie ie7" lang="en">
-//if IE 8 ]><html class="ie ie8" lang="en">
-// [if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]
-head
-  meta(charset='utf-8')
-  title Express CoffeeScript Template
-  meta(name='description', content='')
-  meta(name='author', content='')
-  // Mobile Specific
-  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+html(ng-app='marshmallow')
+  head
+    != js('http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js')
+    meta(charset='utf-8')
+    title Express CoffeeScript Template
+    meta(name='description', content='')
+    meta(name='author', content='')
+    // Mobile Specific
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
-  // CSS
-  != css("http://wilbur.io.s3.amazonaws.com/all.css")
-  != css('app')
-  
-body
-  block content
+    // CSS
+    != css('//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css')
+    != css('app')
 
-  != js('http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7/jquery.min.js')
-  != js('app')
+  body
+    .container
+      .row
+        block content
 
-| </html>
+    != js('//cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js')
+    != js('//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+    != js('//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js')
+    != js('app')

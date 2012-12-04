@@ -1,21 +1,125 @@
-@import 'nib'
+@import nib
+body
+  background #f8f8f8
+  padding 20px 0
 
-.container
-  margin-top 60px
+  #messages
+    background white
+    min-height 100px
+    height 100%
+    -webkit-border-radius 6px
+    -moz-border-radius 6px
+    border-radius 6px
+    -webkit-box-shadow 0 1px 4px rgba(0, 0, 0, .065)
+    -moz-box-shadow 0 1px 4px rgba(0,0,0,.065)
+    box-shadow 0 1px 4px rgba(0, 0, 0, .065)
 
-h2
-  smooth-button()
-  width: 90%
-  font-size: 2em
+    div:last-child
+      border-bottom 0
 
-h3
-  margin-top: 20px
-pre
-  font-family: courier
-  background-color: rgba(0,0,0,.8)
-  color: yellow
-  width: 100%
-  margin-bottom: 20px
-  padding: 10px
-  border: 1px solid black
-  
+
+    .meta
+      border-bottom 1px solid #eee;
+      border-left 1px solid #eee;
+      font-size 12px
+      font-weight 200
+      margin-left 42px
+      padding-top 10px;
+      padding-left 10px
+      color #999
+
+    .message
+      background #eee
+
+    .media
+      margin-top 0
+      border-bottom 1px solid #eee
+
+      .pull-left
+        margin-right 0
+
+      .media-object
+        margin 5px
+        -webkit-box-shadow 0 1px 4px rgba(0, 0, 0, .065)
+        -moz-box-shadow 0 1px 4px rgba(0,0,0,.065)
+        box-shadow 0 1px 4px rgba(0, 0, 0, .065)
+        -webkit-border-radius 4px;
+        -moz-border-radius 4px;
+        border-radius 4px;
+
+      .placeholder
+        margin 5px
+        width 32px
+        height auto
+
+      .media-body
+        background white
+        border-left 1px solid #eee;
+        padding-left 10px
+        padding-bottom 0
+
+        h5
+          padding-top 6px
+          line-height 1
+
+  .room-list
+    margin 20px 0 0
+    padding 0
+    background-color #fff
+    -webkit-border-radius 6px
+    -moz-border-radius 6px
+    border-radius 6px
+    -webkit-box-shadow 0 1px 4px rgba(0,0,0,.065)
+    -moz-box-shadow 0 1px 4px rgba(0,0,0,.065)
+    box-shadow 0 1px 4px rgba(0,0,0,.065)
+
+  .room-list > li > a
+    cursor pointer
+    display block
+    margin 0 0 -1px
+    padding 8px 14px
+    border-bottom 1px solid #eee
+
+  .room-list > lilast-child > a
+    border 0
+
+  .room-list > lifirst-child > a
+    -webkit-border-radius 6px 6px 0 0
+    -moz-border-radius 6px 6px 0 0
+    border-radius 6px 6px 0 0
+
+  .room-list > lilast-child > a
+    -webkit-border-radius 0 0 6px 6px
+    -moz-border-radius 0 0 6px 6px
+    border-radius 0 0 6px 6px
+
+  .room-list > .active > a
+    position relative
+    z-index 2
+    padding 9px 15px
+    border 0
+    text-shadow 0 1px 0 rgba(0,0,0,.15)
+    -webkit-box-shadow inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1)
+    -moz-box-shadow inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1)
+    box-shadow inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1)
+
+  .room-list .icon-chevron-right
+    float right
+    margin-top 2px
+    margin-right -6px
+    opacity .25
+
+  .room-list > li > ahover
+    background-color #eee
+
+  .room-list ahover .icon-chevron-right
+    opacity .5
+
+  .room-list .active .icon-chevron-right,
+  .room-list .active ahover .icon-chevron-right
+    background-image url(../img/glyphicons-halflings-white.png)
+    opacity 1
+
+  .room-list.affix
+    top 0
+

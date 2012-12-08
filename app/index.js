@@ -64,7 +64,8 @@ io.sockets.on('connection', function(socket) {
   Campfire.presence(function(rooms) {
     return socket.emit('rooms', rooms);
   });
-  return Campfire.room(534291, function(room) {
+  console.log("Connecting to room " + (+process.env.ROOM_ID));
+  return Campfire.room(+process.env.ROOM_ID, function(room) {
     room.recentMessages(function(data) {
       return Q.map(data.messages, addUser).then(function(messages) {
         return socket.emit('recent', messages);

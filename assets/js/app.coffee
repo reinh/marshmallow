@@ -1,33 +1,4 @@
-app = angular.module('marshmallow', [])
-  .factory "socket", ($rootScope) ->
-      socket = io.connect()
-      on: (eventName, callback) ->
-        socket.on eventName, ->
-          args = arguments
-          $rootScope.$apply ->
-            callback.apply socket, args
-      emit: (eventName, data, callback) ->
-        socket.emit eventName, data, ->
-          args = arguments
-          $rootScope.$apply ->
-            callback.apply socket, args  if callback
-
-@RoomsCtrl = ($scope, socket) ->
-  $scope.rooms = []
-
-  socket.on 'rooms', (rooms) ->
-    $scope.rooms = rooms
-
-@MessagesCtrl = ($scope, socket) ->
-  $scope.messages = []
-
-  socket.on 'recent',  (messages) ->
-    $scope.messages = messages
-    $.scrollBottom()
-
-  socket.on 'message', (message) ->
-    $scope.messages.push message
-    $.scrollBottom()
+socket = io.connect()
 
 $.scrollBottom = () ->
   $('body').trigger 'scrollBottom'
@@ -92,3 +63,12 @@ $ ->
 
     handlers[message.type](message) if handlers[message.type]
     console.log message unless handlers[message.type]
+
+  socket.on 'recent',  (messages) ->
+    appendMessage message for message in messages
+    $.scrollBottom()
+
+  socket.on 'message', (message) ->
+    $scope.messages.push message
+    $.scrollBottom()
+

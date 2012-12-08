@@ -39,7 +39,9 @@ io.sockets.on 'connection', (socket) ->
   Campfire.presence (rooms) ->
     socket.emit 'rooms', rooms
 
-  Campfire.room 534291, (room) ->
+  console.log "Connecting to room #{+process.env.ROOM_ID}"
+
+  Campfire.room +process.env.ROOM_ID, (room) ->
     room.recentMessages (data) ->
       Q.map(data.messages, addUser)
        .then (messages) -> socket.emit 'recent',  messages
